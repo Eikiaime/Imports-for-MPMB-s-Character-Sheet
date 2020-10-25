@@ -129,7 +129,14 @@ RaceList["gnoll-tearer"] = {
 		walk : { spd : 30, enc : 20 } 
 	},
 	languageProfs : ["Common", "Abyssal"],
-	weapons: ["Snapping Jaws"],
+	weaponOptions : {
+		baseWeapon : "unarmed strike",
+		regExpSearch : /\bbite\b/i,
+		name : "Bite",
+		source : ["ToMR", 9],
+		damage : [1, 6, "piercing"]
+	},
+	weaponsAdd : ["Bite"],
 	vision : [["Darkvision", 60]],
 	age : " rarely live longer than 30 years, but mature to adulthood in their first few years, and show no signs of age until a sudden collapse in their last year of life.",
 	height : " normally stand between 7 and 8 feet tall, even in their characteristic hunched posture.",
@@ -152,6 +159,7 @@ RaceList["gnoll-tearer"] = {
 RaceList["sahuagin-deepchild"] = {
 	regExpSearch : /^(?=.*sahuagin)(?=.deepchild).*$/i,
 	name : "Deepchild Sahuagin",
+	sortname : "Sahuagin, Deepchild",
 	source : ["ToMR", 27],
 	plural : "Deepchild Sahuagin",
 	size : 3,
@@ -172,7 +180,7 @@ RaceList["sahuagin-deepchild"] = {
 	age : " age at the same rate as elves, but consider longevity an ill omen; the purpose of life to fulfil one's destiny, so an aged sahuagin must be dissolute, despised by the gods, or possessed of a strange fate indeed.",
 	height : " range from 6 to well over 7 feet tall (5'9\" + 2d10\")",
 	weight : " weigh around 200 lb (120 + 2d10 \xD7 2d6 lb)",
-	scores : [2, 0, 0, 0, 0, 0],
+	scores : [2, 0, 0, 1, 0, 0],
 	features : {
 		"red frenzy" : {
 			name : "Red Frenzy",
@@ -180,20 +188,7 @@ RaceList["sahuagin-deepchild"] = {
 			usages : 1,
 			recovery : "short rest",
 			action : ["bonus action", ""]
-		},
+		}
 	},
 	trait : "Deepchild Sahuagin (+2 Strength, +1 Consitution OR +1 Wisdom) Bite: I am proficient with my flesh-shredding bite, a simple melee weapon that deals 1d6 piercing damage." + (typePF ? "\n" : " ") + "Red Frenzy: When I take the Attack action on my turn, I can bite a creature as a bonus action. On a hit, I gain advantage on my bite attack rolls against that creature for 1 minute, or until it is reduced to 0 hit points. I cannot willingly move away from that creature during this time. I must complete a short before I use this feature again." + (typePF ? "\n" : " ") + "Hold Breath: I can hold my breath for up to 15 minutes at a time." + (typePF ? "\n" : " ") + "Natural Armor: I have an AC of 13 + Dexterity modifier + shield." + (typePF ? "\n" : " ") + "Hungry Jaws: As a bonus action, once per short rest, I can make a special bite attack and if it hits I gain temporary HP equal to my Con modifier (min 1)."
-};
-
-WeaponsList["Snapping Jaws"] = {
-	regExpSearch : /^(?=.*gnoll)(?=.*bite)(?=.*tearer).*$/i,
-	name : "Bite (Gnoll, Tearer)",
-	source : ["ToMR", 9],
-	list : "melee",
-	ability : 2,
-	type : "Natural",
-	damage : [1, 6, "piercing"],
-	range : "Melee",
-	description : "Finesse, Light",
-	abilitytodamage : true
 };
